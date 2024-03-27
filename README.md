@@ -57,3 +57,23 @@ To read the events from the topic, use the Kafka console consumer. Open a new co
 ```bash
 .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic <topic-name> --from-beginning
 ```
+## Kafka Terminologies
+
+**1. Kafka Cluster:** Since Kafka is a distributed system, it act as a cluster. A kafka cluster consists of a set of brokers. A cluster has a minimum of 3 brokers.
+
+**2. Kafka Broker:** The broker is the Kafka server. It's just a meaningful name given to the Kafka server. And this name makes sense as well because all that Kafka does is act as a message broker between producer and consumer.
+The producer and consumer don't interact directly. They use Kafka server as an agent or a broker to exchange messages.
+
+*Producer ---->  Kafka Broker ----> Consumer*
+
+**3. Producer:** Producer is an application that sends messages. It does not send messages directly to the recipient. It sends messages only to the Kafka server
+
+**4. Consumer:** Consumer is an application that reads mesages from the Kafka server. Any application that requests data from a Kafka server is a consumer, and they can ask for data send by any producer provided they have permissions to read it.
+
+**5. Kafka Topic:** Topic is like a table in database or folder in a file system. Topic is identified as name. You can have any number of topics. Topic is like a category that categories the message in a Kafka broker.
+
+**6. Kafka Partitions:** Kafka topics are divided into a number of partitions, which contain records in an unchangeable sequence. Kafka Brokers will store messages for a topic. But the capacity of data can be enormous and it may not be possible to store in a single computer. Therefore it will partitioned into multiple parts and distributed among multiple computers, since Kafka is a distributed system.
+
+**7. Offsets:** Offset is a sequence of ids given to messages as the arrive at a partition. Once the offset is assigned it will never be changed. The first message gets an offset zero. The next mesages receives an offset one and so on.
+
+**8. Consumer Groups:** A consumer group contains one or more consumers working together to process the messages.
